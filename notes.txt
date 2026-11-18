@@ -1,0 +1,20 @@
+Notes for the first GitHub learning session on 17 Nov 2026
+creating this notes file to load onto GitHub under sandbox projext
+
+third line added by hand
+== Session 1 log (17 Nov 2026): Commits and history - DONE ==
+Setup: cloned elex-v/git-sandbox to C:\GIT_LEARN\git-sandbox. Repo-local git identity: Learner <learner@example.com> (fake, sandbox only).
+Concepts: working folder -> staging area (git add) -> commit (saves staged changes only). HEAD = latest commit, HEAD~1 = one before.
+Reading history: git log --oneline --graph, git diff (preview uncommitted), git show <commit> (replay a commit). a/ = old version, b/ = new, /dev/null = file did not exist.
+Undo tools: git restore <file> (uncommitted edit, discarded for good); git commit --amend (last LOCAL commit, changes the hash); git revert HEAD (adds a cancelling commit, safe for pushed/shared history).
+Commits made (local only, NOT pushed): 52d6da2 Add notes file, 90eb51f Append a line to notes, 33eb563 Add todo file, ffc9c6a Update toto, c413a6c Revert "Update toto".
+Typos to remember: 'git lot', 'git -commit', 'git --online' all failed harmlessly; subcommands take no dash.
+Next: Session 2 (Branches). Say "start session 2".
+
+== Session 2 log (17 Nov 2026): Branches - DONE ==
+Concepts: a branch is a movable label on a commit, not a copy of files. HEAD marks the current branch. Committing moves only the current branch's label, so main stays safe.
+Commands: git switch -c <name> (create + move), git switch <name>, git branch (list, * = current), git log --oneline --graph --all (see every line).
+Practiced: created docs/practice, made 2 commits (aec47a1, 603699a). On main practice.txt disappeared; switching back it returned (files swap with the snapshot, nothing deleted).
+Deleting: git branch -d refuses if unmerged (protects commits from being orphaned; works after merge). git branch -D forces deletion (used here; branch was throwaway, was 603699a).
+State: main at 6f6e5e0, 6 commits ahead of origin/main, nothing pushed.
+Next: Session 3 (Pull requests and merge): push a branch, open a PR, merge. Need to confirm write access to elex-v/git-sandbox first. Say "start session 3".
