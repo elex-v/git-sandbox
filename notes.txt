@@ -18,3 +18,14 @@ Practiced: created docs/practice, made 2 commits (aec47a1, 603699a). On main pra
 Deleting: git branch -d refuses if unmerged (protects commits from being orphaned; works after merge). git branch -D forces deletion (used here; branch was throwaway, was 603699a).
 State: main at 6f6e5e0, 6 commits ahead of origin/main, nothing pushed.
 Next: Session 3 (Pull requests and merge): push a branch, open a PR, merge. Need to confirm write access to elex-v/git-sandbox first. Say "start session 3".
+
+== Session 3 log (18 Nov 2026): Pull requests and merge - DONE ==
+Access: gh logged in as elex-v with ADMIN on elex-v/git-sandbox, so push and merge work.
+Loop used: git switch -c <branch> -> commit -> git push -u origin <branch> -> gh pr create --fill -> gh pr merge --<type> --delete-branch -> git pull. Then git fetch --prune clears stale remote labels.
+Moved the 7 local commits off main onto docs/session-notes with 'git branch -f main origin/main', so main matched GitHub before the first PR.
+PR #1 squash: 7 commits became 1 on main (e2bb4b9), straight line, original commits not on main (still visible on the PR Commits tab).
+PR #2 merge commit: kept both commits (same hashes) plus a merge commit (1fa80ca); history forks and rejoins.
+PR #3 rebase: commits replayed on main as copies with NEW hashes (e894931, 3014be4); straight line, no merge commit. Typo 'teext' is now permanent in main.
+Commit vs push vs PR: commit = local snapshot; push = publish to GitHub; PR = request to merge, with review before main changes. Never work directly on main.
+Reminder: git add before each commit (forgot once). 'gh pr craete' and 'git pr create' are typos; it is 'gh pr create'.
+Next: Session 4 (Reviews): review a PR you did not write or one with a deliberate bug, line comments, request changes, push a fix, approve; turn on branch protection requiring 1 approving review on the sandbox repo. Say 'start session 4'.
