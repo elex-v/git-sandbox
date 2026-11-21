@@ -39,7 +39,7 @@ def check_holding(symbol, position):
         triggers.append(f"Trend breakdown: price ${price:.2f} below {SMA_PERIOD_DAYS}d SMA ${sma:.2f}")
 
     if avg_cost:
-        change_pct = (avg_cost - price) / avg_cost
+        change_pct = (price - avg_cost) / avg_cost
         if change_pct <= -STOP_LOSS_PCT:
             triggers.append(f"Stop-loss: down {abs(change_pct) * 100:.1f}% from avg cost ${avg_cost:.2f}")
         if change_pct >= TAKE_PROFIT_PCT:
