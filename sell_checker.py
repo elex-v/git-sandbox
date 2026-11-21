@@ -2,7 +2,7 @@ import yfinance as yf
 
 from portfolio_store import load_history, net_holdings
 
-STOP_LOSS_PCT = 0.15  # flag if price is 15% below average cost basis
+STOP_LOSS_PCT = 0.10  # flag if price is 10% below average cost basis
 TAKE_PROFIT_PCT = 0.30  # flag if price is 30% above average cost basis
 SMA_PERIOD_DAYS = 50
 
