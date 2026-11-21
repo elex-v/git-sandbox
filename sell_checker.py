@@ -2,7 +2,7 @@ import yfinance as yf
 
 from portfolio_store import load_history, net_holdings
 
-STOP_LOSS_PCT = 0.15  # flag if price is 15% below average cost basis
+STOP_LOSS_PCT = 0.10  # flag if price is 10% below average cost basis
 TAKE_PROFIT_PCT = 0.30  # flag if price is 30% above average cost basis
 SMA_PERIOD_DAYS = 50
 
@@ -39,7 +39,7 @@ def check_holding(symbol, position):
         triggers.append(f"Trend breakdown: price ${price:.2f} below {SMA_PERIOD_DAYS}d SMA ${sma:.2f}")
 
     if avg_cost:
-        change_pct = (price - avg_cost) / avg_cost
+        change_pct = (avg_cost - price) / avg_cost
         if change_pct <= -STOP_LOSS_PCT:
             triggers.append(f"Stop-loss: down {abs(change_pct) * 100:.1f}% from avg cost ${avg_cost:.2f}")
         if change_pct >= TAKE_PROFIT_PCT:
