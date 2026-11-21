@@ -29,3 +29,13 @@ PR #3 rebase: commits replayed on main as copies with NEW hashes (e894931, 3014b
 Commit vs push vs PR: commit = local snapshot; push = publish to GitHub; PR = request to merge, with review before main changes. Never work directly on main.
 Reminder: git add before each commit (forgot once). 'gh pr craete' and 'git pr create' are typos; it is 'gh pr create'.
 Next: Session 4 (Reviews): review a PR you did not write or one with a deliberate bug, line comments, request changes, push a fix, approve; turn on branch protection requiring 1 approving review on the sandbox repo. Say 'start session 4'.
+
+== Session 4 log (21 Nov 2026): Reviews - DONE ==
+Warm-up: committed the session 3 notes on docs/session3-notes and merged it as PR #4 (merge commit 65cebf7, two parents 3014be4 and d138222). Read git log in detail: Merge: line lists both parents; labels like origin/main are my last known copy of GitHub, updated only by fetch/pull/push; origin is just the default local nickname for the remote URL.
+Review: PR #5 "Tighten stop-loss to 10%" (branch fix/tighten-stop-loss) had a planted bug: change_pct = (avg_cost - price) / avg_cost, inverted, so a loss looked like a gain and the stop-loss never fired. Found it, left a line comment on sell_checker.py line 42, pushed "Fix change_pct direction" to the same branch, PR updated, merged.
+Limit: GitHub will not let the author approve or request changes on their own PR, so the review was saved as Comment. A real approval needs a second account or collaborator.
+Lessons: a good review comment states what is wrong, why it matters, and the suggested fix, in the first comment. The author's description is a claim; read the diff against it ("tidies" hid a behaviour change). Tests only cover what the author thought to test; an independent reviewer catches the assumption.
+Branch protection: ruleset "Merging" on main (target ~DEFAULT_BRANCH, not ~ALL), requires 1 approving review, bypass list = Repository admin (always). First attempt covered all branches with an empty bypass list, which would have locked everyone out. Turn protection on BEFORE merging, and read the ruleset back after saving.
+Proof: PR #6 (test/protection-check) showed REVIEW_REQUIRED but merged with admin override (merge commit 854091c). The bypass is visible in the PR history, so it is not silent.
+Typos to remember: "docs/session 3-notes" with a space made git read two refs and the push failed harmlessly. A ":" at the bottom of git log is the pager; press q.
+Next: Session 5 (Conflicts and syncing). Say "start session 5".
